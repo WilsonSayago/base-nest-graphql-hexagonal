@@ -1,73 +1,66 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# Project Name: base-nest-graphql-hexagonal
 
 ## Description
+This project is a Node.js application built with NestJS, GraphQL, and MongoDB. It follows a hexagonal architecture to organize code in a modular and scalable way. The application provides a GraphQL API for managing Pokemon entities stored in a MongoDB database.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Getting Started
+To run the project locally with Yarn, follow these steps:
 
-## Installation
+1. Clone the repository:
+   ```bash
+   git clone [repository_url]
+   cd base-nest-graphql-hexagonal
+   ```
 
-```bash
-$ yarn install
-```
+2. Install dependencies:
+   ```bash
+   yarn install
+   ```
 
-## Running the app
+3. Configure MongoDB:
+    - Make sure MongoDB is installed and running on `mongodb://localhost:27017/nest-pokemon`. You can modify the MongoDB connection URL in the `MongooseModule.forRoot` call in `app.module.ts` if needed.
 
-```bash
-# development
-$ yarn run start
+4. Build the project:
+   ```bash
+   yarn build
+   ```
 
-# watch mode
-$ yarn run start:dev
+5. Start the application:
+   ```bash
+   yarn start
+   ```
 
-# production mode
-$ yarn run start:prod
-```
+The GraphQL API will be accessible at `http://localhost:3000/graphql`.
 
-## Test
+## Project Structure
+- `src/app.module.ts`: Main module definition, includes configuration for GraphQL, Mongoose (MongoDB), and other modules.
+- `src/modules/pokemon`: Contains modules and components related to Pokemon, including a GraphQL resolver.
+- `src/modules/usecase`: Usecase module with components related to business logic.
+- `src/core`: Core domain logic, including the definition of the Pokemon entity.
+- `src/infra`: Infrastructure layer with configurations and instances.
 
-```bash
-# unit tests
-$ yarn run test
+## GraphQL Endpoints
+- `getAllPokemon`: Fetch all Pokemon entities.
+- `getPokemonById(id: String)`: Fetch a specific Pokemon by ID.
 
-# e2e tests
-$ yarn run test:e2e
+## Scripts
+- `yarn build`: Build the NestJS application.
+- `yarn start`: Start the application.
+- `yarn start:dev`: Start the application in watch mode for development.
+- `yarn test`: Run tests using Jest.
+- `yarn test:watch`: Run tests in watch mode.
+- `yarn test:cov`: Run tests with coverage report.
+- `yarn lint`: Run ESLint for code linting.
+- `yarn format`: Format code using Prettier.
 
-# test coverage
-$ yarn run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Dependencies
+- `@nestjs/apollo`, `@nestjs/common`, `@nestjs/config`, `@nestjs/core`, `@nestjs/graphql`, `@nestjs/mongoose`: NestJS dependencies for building the application.
+- `@apollo/server`, `graphql`: Dependencies for GraphQL server implementation.
+- `mongoose`: MongoDB ODM for NestJS.
+- `rxjs`: Reactive Extensions for JavaScript.
+- Other development and testing dependencies specified in `package.json`.
 
 ## License
+This project is licensed under the UNLICENSED license.
 
-Nest is [MIT licensed](LICENSE).
+Feel free to explore the code and adapt it to your needs!
