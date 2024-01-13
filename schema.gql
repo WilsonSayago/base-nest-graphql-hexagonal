@@ -1,0 +1,13 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type PokemonDto {
+  id: String!
+  name: String!
+}
+
+type Query {
+  getAllPokemon: [PokemonDto!]
+  getPokemonById(id: String!): PokemonDto
+}
